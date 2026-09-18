@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Charlotte Cat Games | Desenvolvimento de Jogos em Unity</title>
+
+  <title>Charlotte Cat Games | Unity, C# e .NET</title>
   <meta
     name="description"
-    content="Charlotte Cat Games é um estúdio independente de desenvolvimento de jogos em Unity, especializado em projetos 2D, 3D, multiplayer, PC, Android e Web."
+    content="Charlotte Cat Games é um estúdio independente de desenvolvimento de jogos e software com Unity, C# e .NET."
   />
 
   <style>
+    /* =========================================================
+       01. CONFIGURAÇÕES GERAIS
+       ========================================================= */
     * {
       margin: 0;
       padding: 0;
@@ -80,16 +84,14 @@
     }
 
     .section-subtitle {
-      max-width: 820px;
+      max-width: 800px;
       color: var(--text-soft);
       margin-bottom: 34px;
-      font-size: 1rem;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       margin-bottom: 16px;
       padding: 7px 14px;
       border-radius: 999px;
@@ -121,7 +123,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       min-height: 48px;
       padding: 12px 18px;
       border-radius: 12px;
@@ -129,7 +130,7 @@
       border: 1px solid rgba(255, 255, 255, 0.10);
       color: #ffffff;
       font-weight: bold;
-      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      transition: 0.2s ease;
       box-shadow: 0 10px 24px rgba(38, 97, 220, 0.25);
     }
 
@@ -137,7 +138,6 @@
       transform: translateY(-2px);
       color: #ffffff;
       background: linear-gradient(180deg, #4a88ff 0%, #2f74ff 100%);
-      box-shadow: 0 14px 28px rgba(38, 97, 220, 0.30);
     }
 
     .btn.secondary {
@@ -156,12 +156,15 @@
       font-size: 0.95rem;
     }
 
+    /* =========================================================
+       02. HEADER / MENU
+       ========================================================= */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(12px);
-      background: rgba(6, 12, 22, 0.78);
+      background: rgba(6, 12, 22, 0.82);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
@@ -199,15 +202,17 @@
 
     .nav a {
       color: #d7e3ff;
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       font-weight: bold;
-      transition: color 0.2s ease;
     }
 
     .nav a:hover {
       color: #ffffff;
     }
 
+    /* =========================================================
+       03. HERO / INÍCIO
+       ========================================================= */
     .hero {
       min-height: calc(100vh - 76px);
       display: flex;
@@ -215,7 +220,7 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(rgba(5, 10, 18, 0.66), rgba(5, 10, 18, 0.86)),
+        linear-gradient(rgba(5, 10, 18, 0.68), rgba(5, 10, 18, 0.88)),
         url("banner.png") center/cover no-repeat;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -234,8 +239,8 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 34px;
       align-items: center;
       padding: 90px 0;
     }
@@ -245,226 +250,153 @@
     }
 
     .hero h1 {
-      font-size: 4rem;
-      line-height: 1.02;
-      margin-bottom: 16px;
-      max-width: 760px;
+      font-size: 3.7rem;
+      line-height: 1.03;
+      margin-bottom: 18px;
     }
 
-    .hero .studio-type {
-      font-size: 1.1rem;
-      color: #dbe6ff;
-      margin-bottom: 16px;
-    }
-
-    .hero .hero-text {
-      font-size: 1.05rem;
+    .hero-text {
+      font-size: 1.08rem;
       color: var(--text-soft);
-      max-width: 700px;
-      margin-bottom: 28px;
+      max-width: 660px;
+      margin-bottom: 26px;
     }
 
     .hero-highlights {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 28px;
     }
 
     .hero-highlight {
-      padding: 10px 14px;
+      padding: 9px 13px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.07);
       border: 1px solid rgba(255, 255, 255, 0.10);
       color: #e3ecff;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .hero-side-card {
-      padding: 26px;
-      background:
-        linear-gradient(180deg, rgba(15, 28, 52, 0.95) 0%, rgba(10, 21, 41, 0.94) 100%);
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(15, 28, 52, 0.95), rgba(10, 21, 41, 0.94));
       border: 1px solid rgba(98, 145, 255, 0.24);
       border-radius: 24px;
       box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-side-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(110, 168, 255, 0.14), transparent 40%);
-      pointer-events: none;
     }
 
     .hero-side-card h3 {
-      position: relative;
-      font-size: 1.35rem;
-      margin-bottom: 14px;
+      font-size: 1.3rem;
+      margin-bottom: 18px;
     }
 
-    .hero-side-card p {
-      position: relative;
-      color: var(--text-soft);
-      margin-bottom: 20px;
-    }
-
-    .mini-stats {
-      position: relative;
+    .service-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
 
-    .mini-stat {
-      padding: 14px;
-      border-radius: 16px;
+    .service-item {
+      padding: 14px 16px;
+      border-radius: 15px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .mini-stat strong {
+    .service-item strong {
       display: block;
-      font-size: 1.15rem;
-      margin-bottom: 4px;
-      color: #ffffff;
+      margin-bottom: 3px;
     }
 
-    .mini-stat span {
+    .service-item span {
       color: var(--text-soft);
       font-size: 0.92rem;
     }
 
-    .about-section {
+    /* =========================================================
+       04. PROJETOS PARA CLIENTES
+       Aqui fica a NOVA estrutura alternada.
+       ========================================================= */
+    .client-projects-section {
       background:
-        radial-gradient(circle at top left, rgba(67, 120, 255, 0.10), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(68, 179, 255, 0.08), transparent 30%);
+        radial-gradient(circle at top left, rgba(90, 118, 255, 0.10), transparent 30%);
     }
 
-    .about-grid {
+    .client-projects-list {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
-      align-items: stretch;
+      gap: 28px;
     }
 
-    .about-content {
-      padding: 34px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.035) 100%);
+    .client-project {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 34px;
+      align-items: center;
+      padding: 26px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
     }
 
-    .about-content p {
+    .client-project.reverse .project-media {
+      order: 2;
+    }
+
+    .client-project.reverse .project-description {
+      order: 1;
+    }
+
+    .project-media {
+      width: 100%;
+      min-height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111c31;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-media img,
+    .project-media iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      display: block;
+      object-fit: cover;
+      border: 0;
+    }
+
+    .project-description h3 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .project-description p {
       color: var(--text-soft);
       margin-bottom: 18px;
     }
 
-    .about-points {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 24px;
-    }
-
-    .about-point {
-      padding: 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .about-point strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #ffffff;
-      font-size: 0.98rem;
-    }
-
-    .about-point span {
-      color: var(--text-soft);
-      font-size: 0.94rem;
-    }
-
-    .tech-stack {
-      margin-top: 26px;
+    .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tech-badge {
-      display: inline-flex;
-      align-items: center;
       gap: 8px;
-      padding: 9px 12px;
+      margin-bottom: 20px;
+    }
+
+    .project-tag {
+      padding: 6px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.08);
-      color: #e1e9ff;
-      font-size: 0.92rem;
+      color: #dce6ff;
+      font-size: 0.82rem;
     }
 
-    .about-focus-panel {
-      padding: 30px;
-      border-radius: 22px;
-      background:
-        linear-gradient(180deg, rgba(14, 28, 52, 0.95) 0%, rgba(10, 22, 42, 0.92) 100%);
-      border: 1px solid rgba(84, 140, 255, 0.22);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .about-focus-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(110,168,255,0.12), transparent 45%);
-      pointer-events: none;
-    }
-
-    .about-focus-panel h3 {
-      position: relative;
-      margin-bottom: 18px;
-      font-size: 1.35rem;
-    }
-
-    .focus-list {
-      position: relative;
-      display: grid;
-      gap: 12px;
-    }
-
-    .focus-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 15px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .focus-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(110, 168, 255, 0.12);
-      color: #d7e6ff;
-      flex-shrink: 0;
-      font-size: 1rem;
-    }
-
-    .focus-item span {
-      color: #e6eeff;
-      line-height: 1.5;
-    }
-
+    /* =========================================================
+       05. MARTIAN CONQUER / JOGO EM DESTAQUE
+       Mantido no estilo atual.
+       ========================================================= */
     .featured-section {
       background:
         radial-gradient(circle at top center, rgba(67, 120, 255, 0.09), transparent 34%);
@@ -543,8 +475,6 @@
     .featured-info-card strong {
       display: block;
       margin-bottom: 6px;
-      color: #ffffff;
-      font-size: 0.98rem;
     }
 
     .featured-info-card span {
@@ -552,10 +482,13 @@
       font-size: 0.94rem;
     }
 
+    /* =========================================================
+       06. OUTROS PROJETOS
+       Projetos menores. Botão só quando existir link real.
+       ========================================================= */
     .projects-section {
       background:
-        radial-gradient(circle at top left, rgba(90, 118, 255, 0.10), transparent 30%),
-        linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.01) 100%);
+        radial-gradient(circle at top left, rgba(90, 118, 255, 0.10), transparent 30%);
     }
 
     .projects-header {
@@ -568,30 +501,23 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
-    .mobile-grid {
-      display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
     .project-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
       overflow: hidden;
-      transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      transition: 0.22s ease;
       box-shadow: 0 8px 24px rgba(0,0,0,0.16);
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+      transform: translateY(-6px);
       border-color: rgba(110, 168, 255, 0.22);
+      box-shadow: 0 18px 36px rgba(0,0,0,0.28);
     }
 
     .project-thumb-wrap {
@@ -601,26 +527,10 @@
 
     .project-thumb {
       width: 100%;
-      height: 210px;
+      height: 260px;
       object-fit: cover;
       background: #18233d;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: transform 0.35s ease;
-    }
-
-    .mobile-thumb {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      object-position: top center;
-      background: #18233d;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: transform 0.35s ease;
-    }
-
-    .project-card:hover .project-thumb,
-    .project-card:hover .mobile-thumb {
-      transform: scale(1.04);
     }
 
     .project-overlay {
@@ -630,7 +540,6 @@
       bottom: 14px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       gap: 10px;
     }
 
@@ -642,7 +551,6 @@
       color: #e3ecff;
       font-size: 0.82rem;
       font-weight: bold;
-      backdrop-filter: blur(8px);
     }
 
     .project-content {
@@ -652,13 +560,11 @@
     .project-content h3 {
       font-size: 1.18rem;
       margin-bottom: 8px;
-      line-height: 1.2;
     }
 
     .project-content p {
       color: var(--text-soft);
       font-size: 0.95rem;
-      margin-bottom: 16px;
     }
 
     .project-meta {
@@ -671,6 +577,10 @@
       font-size: 0.84rem;
     }
 
+    /* =========================================================
+       07. LINKS DO ESTÚDIO
+       Steam / YouTube / Email / GameMonetize
+       ========================================================= */
     .links-section {
       background:
         radial-gradient(circle at top left, rgba(67, 120, 255, 0.18), transparent 35%),
@@ -678,96 +588,55 @@
         linear-gradient(180deg, #08111f 0%, #0b1324 100%);
     }
 
-    .links-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 36px 36px;
-      opacity: 0.08;
-      pointer-events: none;
-    }
-
     .links-panel {
-      position: relative;
       padding: 30px;
       border-radius: 24px;
       background: rgba(15, 24, 43, 0.88);
       border: 1px solid rgba(110, 168, 255, 0.14);
       box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .links-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top center, rgba(110,168,255,0.08), transparent 45%);
-      pointer-events: none;
     }
 
     .links-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      position: relative;
-      z-index: 1;
     }
 
     .link-card {
-      position: relative;
       display: block;
       padding: 20px 18px;
       border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.03) 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.08);
       color: #f4f7ff;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
-      overflow: hidden;
-    }
-
-    .link-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 18px;
-      right: 18px;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #5ea2ff, #7d5cff);
-      opacity: 0.9;
+      transition: 0.22s ease;
     }
 
     .link-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       color: #ffffff;
       border-color: rgba(110, 168, 255, 0.35);
-      background: linear-gradient(180deg, rgba(255,255,255,0.09) 0%, rgba(255,255,255,0.05) 100%);
-      box-shadow:
-        0 10px 24px rgba(0,0,0,0.28),
-        0 0 18px rgba(47,109,246,0.14);
     }
 
     .link-icon {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      display: inline-block;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      font-weight: bold;
     }
 
     .link-card strong {
       display: block;
       margin-bottom: 6px;
-      font-size: 1.08rem;
     }
 
     .link-card span {
       color: #cbd5f0;
-      font-size: 0.95rem;
-      line-height: 1.5;
+      font-size: 0.92rem;
     }
 
+    /* =========================================================
+       08. CTA + CONTATO
+       ========================================================= */
     .cta-section {
       padding-top: 0;
     }
@@ -818,73 +687,36 @@
       font-size: 0.95rem;
     }
 
-
-.client-projects-scroll {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 18px;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-}
-
-.client-projects-scroll .project-card {
-  flex: 0 0 380px;
-  scroll-snap-align: start;
-}
-
-.client-projects-scroll::-webkit-scrollbar {
-  height: 10px;
-}
-
-.client-projects-scroll::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 999px;
-}
-
-.client-projects-scroll::-webkit-scrollbar-thumb {
-  background: rgba(110, 168, 255, 0.35);
-  border-radius: 999px;
-}
-
-.client-projects-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(110, 168, 255, 0.55);
-}
-
-@media (max-width: 640px) {
-  .client-projects-scroll .project-card {
-    flex: 0 0 86%;
-  }
-}
-    
-    @media (max-width: 1100px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .mobile-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
+    /* =========================================================
+       09. RESPONSIVIDADE
+       ========================================================= */
+    @media (max-width: 1000px) {
       .hero-grid,
-      .about-grid,
       .featured-grid,
-      .cta-panel {
+      .cta-panel,
+      .client-project {
         grid-template-columns: 1fr;
+      }
+
+      .client-project.reverse .project-media,
+      .client-project.reverse .project-description {
+        order: initial;
+      }
+
+      .links-list {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 780px) {
       .header-inner {
-        min-height: auto;
-        padding: 18px 0;
+        padding: 16px 0;
         flex-direction: column;
         align-items: flex-start;
       }
 
       .nav {
-        gap: 14px;
+        gap: 12px;
       }
 
       .hero {
@@ -896,99 +728,67 @@
       }
 
       .hero h1 {
-        font-size: 2.9rem;
+        font-size: 2.7rem;
       }
 
-      .about-points,
-      .featured-info-grid,
-      .mini-stats,
-      .mobile-grid {
+      .projects-grid,
+      .featured-info-grid {
         grid-template-columns: 1fr;
       }
 
-      .featured-main-image {
-        height: 250px;
-      }
-
-      .featured-sub-image {
-        height: 170px;
-      }
-
-      .projects-header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .cta-panel {
-        text-align: left;
+      .project-media,
+      .project-media img,
+      .project-media iframe {
+        min-height: 240px;
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 560px) {
       .section {
         padding: 70px 0;
+      }
+
+      .hero h1 {
+        font-size: 2.15rem;
       }
 
       .section-title {
         font-size: 1.8rem;
       }
 
-      .hero h1 {
-        font-size: 2.2rem;
+      .client-project {
+        padding: 18px;
+        gap: 22px;
       }
 
-      .hero .hero-text,
-      .section-subtitle {
-        font-size: 0.98rem;
-      }
-
-      .about-content,
-      .about-focus-panel,
-      .links-panel,
-      .contact-panel,
-      .cta-panel {
-        padding: 24px;
-      }
-
-      .projects-grid,
-      .links-list,
-      .mobile-grid {
+      .links-list {
         grid-template-columns: 1fr;
       }
 
       .project-thumb {
         height: 220px;
       }
-
-      .mobile-thumb {
-        height: 360px;
-      }
-
-      .nav {
-        gap: 12px;
-      }
-
-      .nav a {
-        font-size: 0.92rem;
-      }
     }
   </style>
 </head>
+
 <body>
 
+  <!-- =========================================================
+       HEADER / MENU
+       ========================================================= -->
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
         <a class="brand" href="#home">
           <strong>Charlotte Cat Games</strong>
-          <span>Estúdio Independente de Jogos em Unity</span>
+          <span>Unity, C# e .NET</span>
         </a>
 
-        <nav class="nav"> 
+        <nav class="nav">
           <a href="#client-projects">Projetos para Clientes</a>
           <a href="#featured-game">Jogo em Destaque</a>
-          <a href="#projects">Projetos</a>
-          <a href="https://play.google.com/store/apps/developer?id=Thiago+correia+de+Souza" target="_blank">Jogos Mobile</a>
+          <a href="#projects">Outros Projetos</a>
           <a href="#links">Links</a>
           <a href="#contact">Contato</a>
         </nav>
@@ -996,222 +796,261 @@
     </div>
   </header>
 
- <section class="hero" id="home">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <span class="eyebrow">Estúdio de Desenvolvimento de Jogos em Unity</span>
 
-        <h1>Jogos e experiências desenvolvidos com Unity, C# e sistemas de gameplay sólidos</h1>
+  <!-- =========================================================
+       INÍCIO / HERO
+       Se quiser mudar o texto principal, é aqui.
+       ========================================================= -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
 
-        <p class="studio-type">
-          A Charlotte Cat Games é um estúdio independente focado no desenvolvimento de jogos 2D, 3D, mobile, PC e multiplayer.
-        </p>
+        <div class="hero-content">
+          <span class="eyebrow">Desenvolvimento com Unity, C# e .NET</span>
 
-        <p class="hero-text">
-          O estúdio desenvolve jogos autorais, protótipos e projetos comerciais, com foco em mecânicas bem definidas,
-          gameplay responsivo, boa estrutura técnica e uma experiência de usuário bem trabalhada.
-        </p>
+          <h1>Jogos e software desenvolvidos com C#</h1>
 
-        <div class="hero-highlights">
-          <div class="hero-highlight">Unity e C#</div>
-          <div class="hero-highlight">Jogos 2D e 3D</div>
-          <div class="hero-highlight">Multiplayer com Photon PUN2</div>
-          <div class="hero-highlight">PC, Android e Mobile</div>
-        </div>
-
-        <div class="btn-row">
-          <a class="btn" href="#featured-game">Ver Jogo em Destaque</a>
-          <a class="btn secondary" href="https://play.google.com/store/apps/developer?id=Thiago+correia+de+Souza" target="_blank">Jogos Mobile</a>
-          <a class="btn secondary" href="#projects">Explorar Projetos</a>
-          <a class="btn secondary" href="#contact">Contato</a>
-        </div>
-      </div>
-
-      <aside class="hero-side-card">
-        <h3>Áreas de Atuação</h3>
-
-        <div class="mini-stats">
-          <div class="mini-stat">
-            <strong>Jogos publicados</strong>
-            <span>Projetos publicados na Steam e Google Play</span>
-          </div>
-
-          <div class="mini-stat">
-            <strong>Protótipos</strong>
-            <span>Experimentos rápidos de gameplay</span>
-          </div>
-
-          <div class="mini-stat">
-            <strong>Multiplayer</strong>
-            <span>Sistemas online com Photon PUN2</span>
-          </div>
-
-          <div class="mini-stat">
-            <strong>Produção</strong>
-            <span>Da ideia até uma versão jogável</span>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="section projects-section" id="client-projects">
-  <div class="container">
-    <div class="projects-header">
-      <div>
-        <span class="eyebrow">Projetos para Clientes</span>
-        <h2 class="section-title">Jogos e projetos interativos desenvolvidos para clientes</h2>
-        <p class="section-subtitle">
-          Uma seleção de projetos desenvolvidos sob demanda com Unity e C#, incluindo sistemas de gameplay,
-          experiências interativas, ferramentas educacionais e soluções criadas de acordo com as necessidades de cada cliente.
-        </p>
-      </div>
-    </div>
-
-    <div class="client-projects-scroll">
-      <article class="project-card">
-        <div class="project-thumb-wrap">
-          <img class="mobile-thumb" src="Medic.png" alt="Simulador de Emergências Cardíacas">
-          <div class="project-overlay">
-            <span>Simulador Médico</span>
-            <span>Unity</span>
-          </div>
-        </div>
-
-        <div class="project-content">
-          <div class="project-meta">Projeto para Cliente</div>
-          <h3>Simulador de Emergências Cardíacas</h3>
-          <p>
-            O Simulador de Emergências Cardíacas é um jogo de treinamento médico desenvolvido para apoiar o aprendizado
-            didático de procedimentos de emergência por residentes de cardiologia. Com base científica, o simulador
-            coloca o jogador em cenários clínicos de emergência nos quais decisões corretas são necessárias para reverter
-            condições críticas do paciente.
+          <p class="hero-text">
+            Desenvolvimento de jogos, protótipos, sistemas multiplayer e aplicações desktop.
           </p>
 
-          <p>
-            A experiência inclui ações como desfibrilação, cardioversão e uso adequado de medicamentos,
-            incentivando o jogador a seguir o raciocínio médico e as etapas dos procedimentos
-            durante emergências cardíacas simuladas.
-          </p>
+          <div class="hero-highlights">
+            <div class="hero-highlight">Unity</div>
+            <div class="hero-highlight">C#</div>
+            <div class="hero-highlight">.NET</div>
+            <div class="hero-highlight">Multiplayer</div>
+            <div class="hero-highlight">Desktop</div>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn" href="#client-projects">Ver Projetos</a>
+            <a class="btn secondary" href="mailto:charlottecatgames@gmail.com">Enviar Email</a>
+          </div>
         </div>
-      </article>
-      <article class="project-card">
-  <div class="project-thumb-wrap">
-    <img class="mobile-thumb" src="tdvw.png" alt="Warfront Vanguard">
-    <div class="project-overlay">
-      <span>Tower Defense 3D</span>
-      <span>Steam</span>
+
+        <aside class="hero-side-card">
+          <h3>Áreas de Atuação</h3>
+
+          <div class="service-list">
+            <div class="service-item">
+              <strong>Desenvolvimento de Jogos</strong>
+              <span>Projetos 2D, 3D, mobile e PC com Unity.</span>
+            </div>
+
+            <div class="service-item">
+              <strong>Multiplayer</strong>
+              <span>Sistemas online e integração com Photon PUN2.</span>
+            </div>
+
+            <div class="service-item">
+              <strong>Aplicações em .NET</strong>
+              <span>Software desktop e ferramentas desenvolvidas em C#.</span>
+            </div>
+          </div>
+        </aside>
+
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="project-content">
-    <div class="project-meta">Projeto para Cliente</div>
 
-    <h3>Warfront Vanguard</h3>
+  <!-- =========================================================
+       PROJETOS PARA CLIENTES
+       IMPORTANTE:
+       - Cada <article class="client-project"> é um projeto.
+       - Para inverter os lados, use class="client-project reverse".
+       - Pode usar IMAGEM ou VÍDEO DO YOUTUBE.
+       ========================================================= -->
+  <section class="section client-projects-section" id="client-projects">
+    <div class="container">
 
-    <p>
-      Warfront Vanguard é um jogo de tower defense 3D focado em combate estratégico,
-      sistemas de classificação de inimigos e tomada de decisões táticas. O projeto conta com
-      8 tipos únicos de torres e mais de 33 variações de inimigos, cada uma com
-      comportamentos de combate, resistências e fraquezas diferentes.
-    </p>
+      <span class="eyebrow">Projetos para Clientes</span>
+      <h2 class="section-title">Projetos em destaque</h2>
+      <p class="section-subtitle">
+        Alguns dos principais trabalhos desenvolvidos sob demanda para clientes.
+      </p>
 
-    <p>
-      Os inimigos são divididos em classes, exigindo que o jogador analise cuidadosamente
-      as condições do campo de batalha e monte a composição defensiva mais eficiente.
-      Escolher os tipos corretos de torres contra classes específicas de inimigos é essencial
-      para sobreviver e avançar no jogo.
-    </p>
+      <div class="client-projects-list">
 
-    <p>
-      O projeto continua em desenvolvimento ativo e expansão contínua, com melhorias
-      de gameplay, ajustes de balanceamento e novos conteúdos disponibilizados
-      por meio de sua versão na Steam.
-    </p>
+        <!-- =====================================================
+             PROJETO CLIENTE 01 - SIMULADOR MÉDICO
+             Para usar vídeo do YouTube no futuro, substitua a <img>
+             por um <iframe> seguindo o MODELO no final desta seção.
+             ===================================================== -->
+        <article class="client-project">
+          <div class="project-media">
+            <img src="Medic.png" alt="Simulador de Emergências Cardíacas">
+          </div>
 
-    <div class="btn-row">
-      <a
-        class="btn secondary small"
-        href="https://store.steampowered.com/app/4590380/Warfront_Vanguard/"
-        target="_blank"
-      >
-        Ver na Steam
-      </a>
+          <div class="project-description">
+            <div class="project-tags">
+              <span class="project-tag">Unity</span>
+              <span class="project-tag">Simulador Médico</span>
+            </div>
+
+            <h3>Simulador de Emergências Cardíacas</h3>
+
+            <p>
+              Simulador de treinamento médico criado para apoiar o aprendizado de procedimentos
+              de emergência, incluindo desfibrilação, cardioversão e uso de medicamentos.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- =====================================================
+             PROJETO CLIENTE 02 - WARFRONT VANGUARD
+             "reverse" coloca a mídia na direita.
+             ===================================================== -->
+        <article class="client-project reverse">
+          <div class="project-media">
+            <img src="tdvw.png" alt="Warfront Vanguard">
+          </div>
+
+          <div class="project-description">
+            <div class="project-tags">
+              <span class="project-tag">Unity</span>
+              <span class="project-tag">Tower Defense 3D</span>
+              <span class="project-tag">Steam</span>
+            </div>
+
+            <h3>Warfront Vanguard</h3>
+
+            <p>
+              Tower defense 3D com diferentes tipos de torres, classes de inimigos,
+              resistências, fraquezas e decisões estratégicas durante o combate.
+            </p>
+
+            <div class="btn-row">
+              <a
+                class="btn secondary small"
+                href="https://store.steampowered.com/app/4590380/Warfront_Vanguard/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver na Steam
+              </a>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- =====================================================
+             PROJETO CLIENTE 03 - DOGQUEST
+             ===================================================== -->
+        <article class="client-project">
+          <div class="project-media">
+            <img src="dgq.png" alt="DogQuest">
+          </div>
+
+          <div class="project-description">
+            <div class="project-tags">
+              <span class="project-tag">Unity</span>
+              <span class="project-tag">Photon PUN2</span>
+              <span class="project-tag">Multiplayer</span>
+            </div>
+
+            <h3>DogQuest</h3>
+
+            <p>
+              Jogo de tabuleiro multiplayer 3D para 2 a 4 jogadores, com caminhos ramificados,
+              cartas, power-ups, eventos e minigames durante a partida.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- =====================================================
+             PROJETO CLIENTE 04 - CARD GAME
+             ===================================================== -->
+        <article class="client-project reverse">
+          <div class="project-media">
+            <img src="tgc.jpeg" alt="Card Game">
+          </div>
+
+          <div class="project-description">
+            <div class="project-tags">
+              <span class="project-tag">Unity</span>
+              <span class="project-tag">Estratégia</span>
+              <span class="project-tag">Cartas</span>
+            </div>
+
+            <h3>Card Game</h3>
+
+            <p>
+              Projeto de estratégia com cartas, estrutura de turnos e sistemas focados
+              em decisões táticas e gerenciamento das ações do jogador.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- =====================================================
+             PROJETO CLIENTE 05 - FARM GAME
+             ===================================================== -->
+        <article class="client-project">
+          <div class="project-media">
+            <img src="farmGame.png" alt="Farm Game">
+          </div>
+
+          <div class="project-description">
+            <div class="project-tags">
+              <span class="project-tag">Unity</span>
+              <span class="project-tag">3D</span>
+              <span class="project-tag">Casual</span>
+            </div>
+
+            <h3>Farm Game</h3>
+
+            <p>
+              Projeto 3D inspirado em jogos de fazenda, com sistemas de coleta,
+              progressão e gameplay casual.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- =====================================================
+             COMO ADICIONAR UM NOVO PROJETO
+
+             1) Copie um <article class="client-project"> inteiro.
+             2) Cole aqui embaixo.
+             3) Para colocar a mídia na direita, use:
+                <article class="client-project reverse">
+
+             4) Para usar VÍDEO DO YOUTUBE, troque a imagem por:
+
+             <div class="project-media">
+               <iframe
+                 src="https://www.youtube.com/embed/SEU_ID_DO_VIDEO"
+                 title="Nome do Projeto"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                 allowfullscreen>
+               </iframe>
+             </div>
+
+             5) Se o projeto NÃO tiver link, simplesmente NÃO coloque botão.
+             ===================================================== -->
+
+      </div>
     </div>
-  </div>
-</article>
-
-<article class="project-card">
-  <div class="project-thumb-wrap">
-    <img class="mobile-thumb" src="dgq.png" alt="DogQuest">
-    <div class="project-overlay">
-      <span>Multiplayer</span>
-      <span>PUN2</span>
-    </div>
-  </div>
-
-  <div class="project-content">
-    <div class="project-meta">Projeto para Cliente</div>
-
-    <h3>DogQuest</h3>
-
-    <p>
-      DogQuest é um jogo de tabuleiro multiplayer 3D desenvolvido com Photon PUN2,
-      criado para partidas de 2 a 4 jogadores. O projeto foi inspirado no clássico
-      Key Quest, de Neopets, combinando progressão pelo tabuleiro,
-      escolhas estratégicas e gameplay multiplayer competitivo.
-    </p>
-
-    <p>
-      Os jogadores lançam dados para avançar por caminhos ramificados e escolher diferentes
-      rotas ao longo do tabuleiro. O objetivo principal é coletar as cinco
-      coleiras e retornar com sucesso à área final antes dos adversários.
-    </p>
-
-    <p>
-      Durante a jornada, os jogadores podem usar cartas que concedem power-ups e
-      vantagens durante a partida, ao mesmo tempo em que enfrentam armadilhas, eventos aleatórios
-      e minigames interativos que alteram dinamicamente o andamento da partida.
-    </p>
-
-    <p>
-      O projeto é focado em interação multiplayer, sistemas de progressão durante a partida
-      e gameplay competitivo acessível dentro de um ambiente 3D estilizado.
-    </p>
-  </div>
-</article>
+  </section>
 
 
-
-      
-    </div>
-  </div>
-</section>
-
-
-
-
-
-  
-
- 
-
- 
-
-
-
-  
+  <!-- =========================================================
+       JOGO EM DESTAQUE - MARTIAN CONQUER
+       Mantido no formato atual.
+       ========================================================= -->
   <section class="section featured-section" id="featured-game">
     <div class="container">
       <span class="eyebrow">Lançamento em Destaque</span>
-      <h2 class="section-title">Conheça um dos principais projetos comerciais do estúdio</h2>
+      <h2 class="section-title">Martian Conquer</h2>
       <p class="section-subtitle">
         Um dos principais jogos autorais da Charlotte Cat Games, desenvolvido e publicado comercialmente na Steam.
       </p>
 
       <div class="featured-grid">
+
         <div class="featured-gallery">
           <img class="featured-main-image" src="mc1.jpg" alt="Martian Conquer screenshot 1">
           <img class="featured-sub-image" src="mc2.jpg" alt="Martian Conquer screenshot 2">
@@ -1222,17 +1061,13 @@
           <h3>Martian Conquer</h3>
 
           <p>
-            Martian Conquer é um jogo de estratégia em turnos com gerenciamento econômico, desenvolvido pela Charlotte Cat Games e lançado na Steam.
+            Martian Conquer é um jogo de estratégia em turnos com gerenciamento econômico,
+            desenvolvido pela Charlotte Cat Games e lançado na Steam.
           </p>
 
           <p>
-            O jogador invade e conquista a Terra gerenciando recursos, expandindo sua influência e enviando naves de carga
-            para sustentar a campanha por meio de decisões estratégicas.
-          </p>
-
-          <p>
-            O projeto combina progressão, economia e planejamento tático, sendo um dos principais exemplos
-            da direção criativa e da capacidade de produção do estúdio.
+            O jogador invade e conquista a Terra gerenciando recursos, expandindo sua influência
+            e tomando decisões estratégicas ao longo da campanha.
           </p>
 
           <div class="featured-info-grid">
@@ -1243,48 +1078,61 @@
 
             <div class="featured-info-card">
               <strong>Plataforma</strong>
-              <span>Publicado na Steam</span>
+              <span>Steam</span>
             </div>
 
             <div class="featured-info-card">
               <strong>Foco</strong>
-              <span>Sistemas de progressão e decisões táticas</span>
+              <span>Progressão e decisões táticas</span>
             </div>
 
             <div class="featured-info-card">
-              <strong>Atuação</strong>
-              <span>Produção independente de jogo comercial</span>
+              <strong>Produção</strong>
+              <span>Projeto independente comercial</span>
             </div>
           </div>
 
           <div class="btn-row">
-            <a class="btn" href="https://store.steampowered.com/app/2248670/MARTIAN_CONQUER/" target="_blank">Ver na Steam</a>
+            <a
+              class="btn"
+              href="https://store.steampowered.com/app/2248670/MARTIAN_CONQUER/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver na Steam
+            </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
+
+  <!-- =========================================================
+       OUTROS PROJETOS
+       Projetos menores.
+       Sem botão quando não houver página específica.
+       ========================================================= -->
   <section class="section projects-section" id="projects">
     <div class="container">
+
       <div class="projects-header">
         <div>
-          <span class="eyebrow">Projetos Selecionados</span>
-          <h2 class="section-title">Outros jogos, protótipos e experimentos multiplayer</h2>
+          <span class="eyebrow">Outros Projetos</span>
+          <h2 class="section-title">Protótipos e experimentos</h2>
           <p class="section-subtitle">
-            Uma visão mais ampla do portfólio do estúdio, incluindo protótipos e projetos com foco em multiplayer disponíveis no itch.io e em outras plataformas.
+            Projetos menores utilizados para explorar sistemas, mecânicas e ideias de gameplay.
           </p>
-        </div>
-
-        <div class="btn-row">
-          <a class="btn secondary small" href="https://charlottecatgames.itch.io/" target="_blank">Visitar itch.io</a>
         </div>
       </div>
 
       <div class="projects-grid">
+
+        <!-- OUTRO PROJETO 01 -->
         <article class="project-card">
           <div class="project-thumb-wrap">
-            <img class="project-thumb" src="TankGame.png" alt="Tank Game - jogo de tanques multiplayer">
+            <img class="project-thumb" src="TankGame.png" alt="Tank Game">
             <div class="project-overlay">
               <span>Multiplayer</span>
               <span>Unity</span>
@@ -1295,18 +1143,17 @@
             <div class="project-meta">Photon PUN2</div>
             <h3>Tank Game</h3>
             <p>
-              Um projeto de batalha de tanques com visão de cima, focado em multiplayer, controles responsivos e ação competitiva.
+              Projeto de batalha de tanques com visão de cima, focado em multiplayer,
+              controles responsivos e partidas competitivas.
             </p>
-
-            <div class="btn-row">
-              <a class="btn secondary small" href="https://charlottecatgames.itch.io/" target="_blank">Ver Mais</a>
-            </div>
           </div>
         </article>
 
+
+        <!-- OUTRO PROJETO 02 -->
         <article class="project-card">
           <div class="project-thumb-wrap">
-            <img class="project-thumb" src="CarGame.png" alt="Car Game - protótipo de corrida multiplayer">
+            <img class="project-thumb" src="CarGame.png" alt="Car Game">
             <div class="project-overlay">
               <span>Corrida</span>
               <span>Online</span>
@@ -1317,126 +1164,110 @@
             <div class="project-meta">Photon PUN2</div>
             <h3>Car Game</h3>
             <p>
-              Um protótipo de corrida com visão lateral que explora sistemas multiplayer, competição baseada em tempo e partidas rápidas.
+              Protótipo de corrida com visão lateral, sistemas multiplayer,
+              competição por tempo e partidas rápidas.
             </p>
-
-            <div class="btn-row">
-              <a class="btn secondary small" href="https://charlottecatgames.itch.io/" target="_blank">Ver Mais</a>
-            </div>
           </div>
         </article>
 
-        <article class="project-card">
-          <div class="project-thumb-wrap">
-            <img class="project-thumb" src="tgc.jpeg" alt="Card Game - protótipo de estratégia com cartas">
-            <div class="project-overlay">
-              <span>Estratégia</span>
-              <span>Protótipo</span>
-            </div>
-          </div>
 
-          <div class="project-content">
-            <div class="project-meta">Estratégia com Cartas</div>
-            <h3>Card Game</h3>
-            <p>
-              Um protótipo de estratégia inspirado em jogos clássicos de cartas, com foco em estrutura de turnos e decisões táticas.
-            </p>
+        <!-- =====================================================
+             ADICIONE NOVOS PROJETOS MENORES AQUI.
+             Copie um dos cards acima e altere imagem, nome e texto.
 
-            <div class="btn-row">
-              <a class="btn secondary small" href="https://charlottecatgames.itch.io/" target="_blank">Ver Mais</a>
-            </div>
-          </div>
-        </article>
+             Se algum projeto tiver link real, pode adicionar:
+             <div class="btn-row" style="margin-top:16px;">
+               <a class="btn secondary small" href="LINK_AQUI" target="_blank">
+                 Ver Projeto
+               </a>
+             </div>
+             ===================================================== -->
 
-        <article class="project-card">
-          <div class="project-thumb-wrap">
-            <img class="project-thumb" src="farmGame.png" alt="Farm Game - protótipo 3D de fazenda">
-            <div class="project-overlay">
-              <span>3D</span>
-              <span>Casual</span>
-            </div>
-          </div>
-
-          <div class="project-content">
-            <div class="project-meta">Protótipo de Fazenda</div>
-            <h3>Farm Game</h3>
-            <p>
-              Um projeto 3D inspirado em jogos de fazenda, desenvolvido com gameplay acessível, ciclos de coleta e progressão leve.
-            </p>
-
-            <div class="btn-row">
-              <a class="btn secondary small" href="https://charlottecatgames.itch.io/" target="_blank">Ver Mais</a>
-            </div>
-          </div>
-        </article>
       </div>
     </div>
   </section>
 
- 
 
+  <!-- =========================================================
+       LINKS DO ESTÚDIO
+       ========================================================= -->
   <section class="section links-section" id="links">
     <div class="container">
       <span class="eyebrow">Links do Estúdio</span>
-      <h2 class="section-title">Principais plataformas e canais de contato</h2>
-      <p class="section-subtitle">
-        Acesso centralizado às páginas públicas do estúdio, jogos publicados, protótipos e canais de contato.
-      </p>
+      <h2 class="section-title">Onde encontrar a Charlotte Cat Games</h2>
 
       <div class="links-panel">
         <div class="links-list">
-          <a class="link-card" href="https://store.steampowered.com/app/2248670/MARTIAN_CONQUER/" target="_blank">
+
+          <a
+            class="link-card"
+            href="https://store.steampowered.com/app/2248670/MARTIAN_CONQUER/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="link-icon">Steam</div>
             <strong>Steam</strong>
-            <span>Principal lançamento comercial e página pública na loja</span>
+            <span>Jogos publicados para PC.</span>
           </a>
 
-          <a class="link-card" href="https://play.google.com/store/apps/developer?id=Thiago+correia+de+Souza" target="_blank">
-            <div class="link-icon">Play</div>
-            <strong>Google Play</strong>
-            <span>Projetos e jogos publicados para Android</span>
-          </a>
-
-          <a class="link-card" href="https://charlottecatgames.itch.io/" target="_blank">
-            <div class="link-icon">itch</div>
-            <strong>itch.io</strong>
-            <span>Jogos experimentais, versões para navegador e protótipos</span>
-          </a>
-
-          <a class="link-card" href="https://youtube.com/@kittendevnotaunitytutorial?si=zNMJ9sAYom21O-N5" target="_blank">
-            <div class="link-icon">Video</div>
+          <a
+            class="link-card"
+            href="https://youtube.com/@kittendevnotaunitytutorial?si=zNMJ9sAYom21O-N5"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="link-icon">YouTube</div>
             <strong>YouTube</strong>
-            <span>Vídeos, conteúdo de desenvolvimento e materiais do estúdio</span>
+            <span>Vídeos e projetos do estúdio.</span>
           </a>
 
           <a class="link-card" href="mailto:charlottecatgames@gmail.com">
             <div class="link-icon">Email</div>
             <strong>Email</strong>
-            <span>Contato direto para negócios, parcerias e projetos freelance</span>
+            <span>Contato para projetos e oportunidades.</span>
           </a>
+
+          <!-- IMPORTANTE:
+               Troque "#" abaixo pelo seu link real do GameMonetize. -->
+          <a class="link-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div class="link-icon">GameMonetize</div>
+            <strong>GameMonetize</strong>
+            <span>Jogos publicados para navegador.</span>
+          </a>
+
         </div>
       </div>
     </div>
   </section>
 
+
+  <!-- =========================================================
+       CHAMADA PARA CONTATO
+       ========================================================= -->
   <section class="section cta-section">
     <div class="container">
       <div class="panel cta-panel">
+
         <div>
-          <h3>Precisa de um jogo, protótipo ou desenvolvedor Unity?</h3>
+          <h3>Precisa de um jogo, protótipo ou desenvolvedor C#?</h3>
           <p>
-            A Charlotte Cat Games reúne experiência com desenvolvimento independente, produção em Unity e sistemas multiplayer.
-            Explore o portfólio e entre em contato para conversar sobre projetos, parcerias ou oportunidades de desenvolvimento.
+            Entre em contato para conversar sobre projetos em Unity, multiplayer,
+            aplicações desktop em .NET ou outras soluções desenvolvidas em C#.
           </p>
         </div>
 
         <div class="btn-row">
           <a class="btn" href="#contact">Entrar em Contato</a>
         </div>
+
       </div>
     </div>
   </section>
 
+
+  <!-- =========================================================
+       CONTATO
+       ========================================================= -->
   <section class="section" id="contact">
     <div class="container">
       <span class="eyebrow">Contato</span>
@@ -1444,25 +1275,32 @@
 
       <div class="panel contact-panel">
         <p>
-          Para propostas comerciais, oportunidades freelance, parcerias ou contato geral, envie uma mensagem por email.
+          Para propostas comerciais, oportunidades freelance, parcerias ou contato geral,
+          envie uma mensagem por email.
         </p>
 
         <p class="contact-email">
-          <a href="mailto:charlottecatgames@gmail.com">charlottecatgames@gmail.com</a>
+          <a href="mailto:charlottecatgames@gmail.com">
+            charlottecatgames@gmail.com
+          </a>
         </p>
 
-        <div class="btn-row" style="justify-content: center;">
+        <div class="btn-row" style="justify-content:center;">
           <a class="btn" href="mailto:charlottecatgames@gmail.com">Enviar Email</a>
           <a class="btn secondary" href="#home">Voltar ao Topo</a>
         </div>
 
         <p class="contact-note">
-          A Charlotte Cat Games desenvolve jogos e experiências em Unity para desktop, mobile e web.
+          Charlotte Cat Games — desenvolvimento com Unity, C# e .NET.
         </p>
       </div>
     </div>
   </section>
 
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
   <footer>
     <div class="container">
       Charlotte Cat Games
